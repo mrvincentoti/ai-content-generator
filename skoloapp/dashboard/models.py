@@ -18,6 +18,7 @@ class Profile(models.Model):
     addressLine2 = models.CharField(null=True, blank=True, max_length=100)
     city = models.CharField(null=True, blank=True, max_length=100)
     province = models.CharField(null=True, blank=True, max_length=100)
+    country = models.CharField(null=True, blank=True, max_length=100)
     postalCode = models.CharField(null=True, blank=True, max_length=100)
     profileImage = ResizedImageField(size=[100,100], quality=90, upload_to='profile_image')
     #### ADD OTHER VARIABLES HERE

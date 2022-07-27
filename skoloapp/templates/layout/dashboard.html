@@ -146,7 +146,11 @@
               <li class="nav-item navbar-dropdown dropdown-user dropdown">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                   <div class="avatar avatar-online">
-                    <img src="{% static 'main/img/avatars/1.png' %}" alt class="w-px-40 h-auto rounded-circle" />
+                    {% if user.profile.profileImage.name %}
+                    <img src="{{user.profile.profileImage.url}}" alt class="w-px-40 h-auto rounded-circle" />
+                    {% else %}
+                    <img src="{static 'main/img/avatar/1.png'}" alt class="w-px-40 h-auto rounded-circle" />
+                    {% endif %}
                   </div>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
@@ -155,11 +159,16 @@
                       <div class="d-flex">
                         <div class="flex-shrink-0 me-3">
                           <div class="avatar avatar-online">
-                            <img src="{% static 'main/img/avatars/1.png' %}" alt class="w-px-40 h-auto rounded-circle" />
+                            {% if user.profile.profileImage.name %}
+                            <img src="{{user.profile.profileImage.url}}" alt class="w-px-40 h-auto rounded-circle" />
+                            {% else %}
+                            <img src="{static 'main/img/avatar/1.png'}" alt class="w-px-40 h-auto rounded-circle" />
+                            {% endif %}
                           </div>
                         </div>
                         <div class="flex-grow-1">
-                          <span class="fw-semibold d-block">{{user.email}}</span>
+                          <span class="fw-semibold d-block">{{user.first_name}} {{user.last_name}}</span>
+                          <small class="text-muted">{{user.email}}</small>
                         </div>
                       </div>
                     </a>
