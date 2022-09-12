@@ -29,6 +29,11 @@ class Profile(models.Model):
     date_created = models.DateTimeField(blank=True, null=True)
     last_updated = models.DateTimeField(blank=True, null=True)
 
+    #Permissions
+    is_kam = models.BooleanField(default=False)
+    is_cso = models.BooleanField(default=False)
+    is_management = models.BooleanField(default=False)
+
     def __str__(self):
         return '{} {} {}'.format(self.user.first_name, self.user.last_name, self.user.email)
 
@@ -37,6 +42,12 @@ class Profile(models.Model):
             self.date_created = timezone.localtime(timezone.now())
         if self.uniqueId is None:
             self.uniqueId = str(uuid4()).split('-')[4]
+        if self.is_kam is None:
+            self.is_kam = False
+        if self.is_cso is None:
+            self.is_cso = False
+        if self.is_management is None:
+            self.is_management = False
 
         self.slug = slugify('{} {} {}'.format(self.user.first_name, self.user.last_name, self.user.email))
         self.last_updated = timezone.localtime(timezone.now())

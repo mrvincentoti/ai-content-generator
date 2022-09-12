@@ -5,6 +5,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.decorators import user_passes_test
 
+from rolepermissions.roles import assign_role
+
 def anonymous_required(function=None, redirect_url=None):
     if not redirect_url:
         redirect_url = 'dashboard'
@@ -53,13 +55,14 @@ def register(request):
              return redirect('register')
 
         newUser = User.objects.create_user(email=email,username=email,password=password1)
+        assign_role(newUser, 'kam')
         newUser.save()
 
         auth.login(request,newUser)
 
         return redirect('dashboard')
 
-        print('Username submitted was: {}'.format(username))
+        #print('Username submitted was: {}'.format(username))
 
         return redirect('register')
     return render(request, 'authorization/register.html', {})

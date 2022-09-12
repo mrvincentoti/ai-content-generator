@@ -35,10 +35,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Django role permission library
+    'rolepermissions',
     # Installed app
     'landing',
     'authorization',
     'dashboard',
+    'salesreport',
 
     # Third party apps
     'crispy_forms',
@@ -81,9 +84,9 @@ WSGI_APPLICATION = 'skoloapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'skolo',
-        'USER': 'skolouser',
-        'PASSWORD': 'password',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -154,6 +157,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'email.host'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'mrvincentoti@gmail.com'
-EMAIL_HOST_PASSWORD = '16jAn1987#!'
-DEFAULT_FROM_EMAIL = 'mrvincentoti@gmail.com'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+DEFAULT_FROM_EMAIL = ''
+
+ROLEPERMISSIONS_MODULE = 'skoloapp.roles'

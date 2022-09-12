@@ -23,6 +23,7 @@ urlpatterns = [
     path('', include('landing.urls')),
     path('auth/', include('authorization.urls')),
     path('dashboard/', include('dashboard.urls')),
+    path('salesreport/', include('salesreport.urls')),
 ]
 
 if settings.DEBUG:
