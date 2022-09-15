@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'authorization',
     'dashboard',
     'salesreport',
+    'ftthapp',
 
     # Third party apps
     'crispy_forms',
