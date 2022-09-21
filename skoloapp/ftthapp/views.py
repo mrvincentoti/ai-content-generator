@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Home, About, Pricing, Feedback, Faqs
 
 
 # Local import
@@ -8,8 +9,20 @@ from .models import *
 
 
 def home(request):
-    context = {}
-    return render(request, 'ftth/home.html', context)
+    homes = Home.objects.all()
+    about = About.objects.all()
+    pricing = Pricing.objects.all()
+    feedback = Feedback.objects.all()
+    faqs = Faqs.objects.all()
+
+    context = {
+        'homes': homes,
+        'about': about,
+        'pricing': pricing,
+        'feedback': feedback,
+        'faqs': faqs,
+    }
+    return render(request, '../templates/ftth/home.html', context=context)
 
 
 def contact(request):
