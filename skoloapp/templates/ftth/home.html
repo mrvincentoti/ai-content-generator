@@ -7,44 +7,26 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header border-bottom-0">
-        <h4 class="modal-title" id="exampleModalLabel">How much do you need?</h4>
+        <h4 class="modal-title" id="exampleModalLabel">Check Service Availability</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form action="#!" method="post">
           <div class="row">
-            <div class="col-lg-6 mb-4 pb-2">
+            <div class="col-lg-12 mb-4 pb-2">
               <div class="form-group">
-                <label for="loan_amount" class="form-label">Amount</label>
-                <input type="number" class="form-control shadow-none" id="loan_amount" placeholder="ex: 25000">
-              </div>
-            </div>
-            <div class="col-lg-6 mb-4 pb-2">
-              <div class="form-group">
-                <label for="loan_how_long_for" class="form-label">How long for?</label>
-                <input type="number" class="form-control shadow-none" id="loan_how_long_for" placeholder="ex: 12">
+                <label for="loan_repayment" class="form-label">Where do you live</label>
+                <input type="text" class="form-control shadow-none" id="loan_repayment" placeholder="E.g Wuye, Abuja">
               </div>
             </div>
             <div class="col-lg-12 mb-4 pb-2">
               <div class="form-group">
-                <label for="loan_repayment" class="form-label">Repayment</label>
-                <input type="number" class="form-control shadow-none" id="loan_repayment" disabled>
-              </div>
-            </div>
-            <div class="col-lg-6 mb-4 pb-2">
-              <div class="form-group">
-                <label for="loan_full_name" class="form-label">Full Name</label>
-                <input type="text" class="form-control shadow-none" id="loan_full_name">
-              </div>
-            </div>
-            <div class="col-lg-6 mb-4 pb-2">
-              <div class="form-group">
-                <label for="loan_email_address" class="form-label">Email address</label>
+                <label for="loan_email_address" class="form-label">Your email address</label>
                 <input type="email" class="form-control shadow-none" id="loan_email_address">
               </div>
             </div>
             <div class="col-lg-12">
-              <button type="submit" class="btn btn-primary w-100">Get Your Loan Now</button>
+              <button type="submit" class="btn btn-primary w-100">Check</button>
             </div>
           </div>
         </form>
@@ -53,29 +35,22 @@
   </div>
 </div>
 
-<section class="banner bg-tertiary position-relative overflow-hidden" id="banner">
+<section class="banner position-relative overflow-hidden" style="background-image: url({% static 'ftth/images/banner/happyfamily.jpg'%});background-repeat: no-repeat; background-size: cover;">
   <div class="container">
     <div class="row align-items-center justify-content-center">
       <div class="col-lg-6 mb-5 mb-lg-0">
         <div class="block text-center text-lg-start pe-0 pe-xl-5">
           {% for home in homes %}
           <h1 class="text-capitalize mb-4">{{home.title}}</h1>
-          <p class="mb-4">{{home.content}}
-          </p>
+          <p class="mb-4">{{home.content}}</p>
           <a type="button" class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#applyLoan">Check Availability<span style="font-size: 14px;" class="ms-2 fas fa-arrow-right"></span></a>
         </div>
       </div>
-      <div class="col-lg-6">
-        <div class="ps-lg-12 text-center">
-          <img loading="lazy" decoding="async"
-          src="{% static 'ftth/images/banner/fibre.jpg'%}"
-          alt="banner image" class="w-100">
-        </div>
-      </div>
+
       {% endfor %}
     </div>
   </div>
-  <div class="has-shapes">
+  <div class="has-shapes" id="transparent-bg-1">
     <svg class="shape shape-left text-light" viewBox="0 0 192 752" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M-30.883 0C-41.3436 36.4248 -22.7145 75.8085 4.29154 102.398C31.2976 128.987 65.8677 146.199 97.6457 166.87C129.424 187.542 160.139 213.902 172.162 249.847C193.542 313.799 149.886 378.897 129.069 443.036C97.5623 540.079 122.109 653.229 191 728.495"
@@ -121,7 +96,7 @@
     </svg>
   </div>
 </section>
-<section class="about-section section position-relative overflow-hidden" id="about">
+{% comment %} <section class="about-section section position-relative overflow-hidden" id="about">
   <div class="container">
     <div class="row align-items-center">
       <div class="col-lg-5 text-center text-lg-start">
@@ -175,8 +150,8 @@
         stroke="currentColor" stroke-miterlimit="10" />
     </svg>
   </div>
-</section>
-<section class="section core-value bg-tertiary" id="how">
+</section> {% endcomment %}
+<section class="section core-value bg-tertiary-custom" id="how">
 	<div class="container">
 		<div class="row align-items-center">
       <div class="col-lg-6 mt-5 mt-lg-0">
@@ -402,7 +377,7 @@
   </div>
 </section>
 
-<section class="section" style="padding-top: 20px !important;">
+<section id="speed-background" class="bg-ftth section" style="padding-top: 20px !important;">
   <div class="container">
     <div class="row align-items-center justify-content-between">
       <div class="col-lg-12 text-center">
@@ -470,13 +445,13 @@
   </div>
 </section>
 
-<section class="section testimonials overflow-hidden bg-tertiary">
-  <div class="container">
+<section class="section testimonials overflow-hidden" style="background-image: url({% static 'ftth/images/banner/happy-woman-laptop.jpg'%});background-repeat: no-repeat; background-size: cover;">
+  <div class="container" style="margin-bottom: 150px; margin-top: 20px;">
     <div class="row justify-content-center">
-      <div class="col-lg-6">
+      <div class="col-lg-6 text-white" style="margin-top: 20px;">
         <div class="section-title text-center">
-          <p class="text-primary text-uppercase fw-bold mb-3">Real Stories from Real Customers</p>
-          <h1 class="mb-4">Get inspired by these stories.</h1>
+          <p class="text-white fw-bold mb-3">Real stories from real customers</p>
+          <h1 class="mb-4 text-white">Get inspired by these stories.</h1>
         </div>
       </div>
     </div>
@@ -524,7 +499,7 @@
       </div> {% endcomment %}
     </div>
   </div>
-  <div class="has-shapes">
+  <div class="has-shapes" id="transparent-bg-1">
     <svg class="shape shape-left text-light" width="290" height="709" viewBox="0 0 290 709" fill="none"
       xmlns="http://www.w3.org/2000/svg">
       <path
