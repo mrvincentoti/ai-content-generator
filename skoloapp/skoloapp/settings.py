@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'skoloapp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'skolo',
-        'USER': 'skolouser',
+        'NAME': 'ftth',
+        'USER': 'postgres',
         'PASSWORD': 'password',
-        'HOST': 'localhost',
+        'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
