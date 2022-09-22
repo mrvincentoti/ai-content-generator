@@ -37,17 +37,17 @@
 
 <section class="banner position-relative overflow-hidden" style="background-image: url({% static 'ftth/images/banner/happyfamily.jpg'%});background-repeat: no-repeat; background-size: cover;">
   <div class="container">
-    <div class="row text-center">
-      <div class="col-md-8 offset-md-2 mb-5 mb-lg-0 text-center">
-        <div class="block text-center text-lg-center pe-0 pe-xl-5" style="margin-top: 100px; margin-bottom: 210px">
-          <h1 class="mb-4 text-white">You deserve  the fastest, most reliable internet connection available.</h1>
-          <p class="mb-4 text-white">Nothing’s Faster Than L3Fiber! &amp;
-          Enjoy a smart, reliable 100% fiber network that meets your family's internet connection needs. <br/>
-          STARTING FROM ₦19,888 PER MONTH
-          </p>
+    <div class="row align-items-center justify-content-center">
+      <div class="col-lg-6 mb-5 mb-lg-0">
+        <div class="block text-center text-lg-start pe-0 pe-xl-5">
+          {% for home in homes %}
+          <h1 class="text-capitalize mb-4">{{home.title}}</h1>
+          <p class="mb-4">{{home.content}}</p>
           <a type="button" class="btn btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#applyLoan">Check Availability<span style="font-size: 14px;" class="ms-2 fas fa-arrow-right"></span></a>
         </div>
       </div>
+
+      {% endfor %}
     </div>
   </div>
   <div class="has-shapes" id="transparent-bg-1">
@@ -105,21 +105,14 @@
       <div class="col-lg-7">
         <div class="section-title">
           <p class="text-primary text-uppercase fw-bold mb-3">About Ourselves</p>
-          <h1>L3Fiber for your home </h1>
-          <!-- <span>You deserve  the fastest, most reliable&amp; internet connection available.</span> -->
+          {% for x in about  %}
+          <h1>{{x.title}}</h1>
           <p class="lead mb-0 mt-4">
             <p>
-              L3Fiber, a product of Layer3, is a leading global provider of fiber-to-the-home broadband Internet services which runs on 100% dedicated fiber into the subscriber's home. L3Fiber is a next-generation fiber-to-the-home internet service decked with features and perks that boost the value of your home and investment. 
+              {{x.content}}
             </p>
-            <p>
-              We are backed by a world-class support team that strives to provide top notch customer support.. Our network operating center in Abuja and Lagos carters to the need of over 500 fiber-to-the-home subscribers and 70 estates with strong, world-class customer support.
-            </p>
-            <p>
-              Layer3, has been in business for over 17 years. we understand the needs and expectations of customers, and are passionate about providing world class service.
-            </p>
-            <p>
-              We welcome you and loved ones to a world of unlimited possibilities where no limits apply. Take advantage of the internet access and technical support your family truly deserves. Connect several devices in your home at the same time round the clock. 
-            </p>
+          {% endfor %}
+          <!-- <span>You deserve  the fastest, most reliable&amp; internet connection available.</span> -->
           </p> <a class="btn btn-primary mt-4" href="#about">Know About Us</a>
         </div>
       </div>
@@ -260,35 +253,37 @@
         </div>
       </div>
       <!-- column  -->
-      <div class="col-md-4">
-        <div class="card card-shadow border-0 mb-4 shadow-lg">
-          <div class="card-body p-4">
-            <div class="d-flex align-items-center">
-              <h5 class="font-weight-medium mb-0">Basic Plan</h5>
-              <div class="ml-auto"><span class="badge badge-danger font-weight-normal p-2"></span></div>
-            </div>
-            <div class="row">
-              <div class="col-lg-5 text-center">
-                <div class="price-box my-3">
-                  <sup>&#8358;</sup><span class="text-dark display-6">19,888 </span>
-                  <h6 class="font-weight-light">MONTHLY</h6>
-                  <a class="btn btn-custom btn-info-gradiant font-14 border-0 text-white p-3 btn-block mt-3" href="#">CHOOSE PLAN </a>
-                </div>
+      {% for x in pricing %}
+        <div class="col-md-4">
+          <div class="card card-shadow border-0 mb-4 shadow-lg">
+            <div class="card-body p-4">
+              <div class="d-flex align-items-center">
+                <h5 class="font-weight-medium mb-0">{{x.title}}</h5>
+                <div class="ml-auto"><span class="badge badge-danger font-weight-normal p-2"></span></div>
               </div>
-              <div class="col-lg-7 align-self-center">
-                <ul class="list-inline pl-3 font-14 font-weight-medium text-dark">
-                  <li class="py-2"><i class="icon-check text-info mr-2"></i> <span>7 Days a Week </span></li>
-                  <li class="py-2"><i class="icon-check text-info mr-2"></i> <span>Unlimited Internet</span></li>
-                  <li class="py-2"><i class="icon-check text-info mr-2"></i> <span>24hrs 30 Mbps</span></li>
-                </ul>
+              <div class="row">
+                <div class="col-lg-5 text-center">
+                  <div class="price-box my-3">
+                    <sup>&#8358;</sup><span class="text-dark display-6">{{x.price}} </span>
+                    <h6 class="font-weight-light">MONTHLY</h6>
+                    <a class="btn btn-custom btn-info-gradiant font-14 border-0 text-white p-3 btn-block mt-3" href="#">CHOOSE PLAN </a>
+                  </div>
+                </div>
+                <div class="col-lg-7 align-self-center">
+                  <ul class="list-inline pl-3 font-14 font-weight-medium text-dark">
+                    <li class="py-2"><i class="icon-check text-info mr-2"></i> <span>{{x.duration}}</span></li>
+                    <li class="py-2"><i class="icon-check text-info mr-2"></i> <span>{{x.quantity}}</span></li>
+                    <li class="py-2"><i class="icon-check text-info mr-2"></i> <span>{{x.speed}}</span></li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      {% endfor %}
       <!-- column  -->
       <!-- column  -->
-      <div class="col-md-4">
+      {% comment %} <div class="col-md-4">
         <div class="card card-shadow border-0 mb-4 shadow-lg">
           <div class="card-body p-4">
             <div class="d-flex align-items-center">
@@ -341,7 +336,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> {% endcomment %}
       <!-- column  -->
     </div>
     <div class="has-shapes">
@@ -461,19 +456,21 @@
       </div>
     </div>
     <div class="row position-relative">
-      <div class="col-lg-4 col-md-6 pt-1">
-        <div class="shadow rounded bg-white p-4 mt-4">
-          <div class="d-block d-sm-flex align-items-center mb-3">
-            <div class="mt-3 mt-sm-0 ms-0 ms-sm-3">
-              <h4 class="h5 mb-1">Damilola Ayeni, Lekki, Lagos</h4>
+      {% for x in feedback %}
+        <div class="col-lg-4 col-md-6 pt-1">
+          <div class="shadow rounded bg-white p-4 mt-4">
+            <div class="d-block d-sm-flex align-items-center mb-3">
+              <div class="mt-3 mt-sm-0 ms-0 ms-sm-3">
+                <h4 class="h5 mb-1">{{x.name}}, {{x.location}}</h4>
+              </div>
+            </div>
+            <div class="content">
+              {{x.content}} 
             </div>
           </div>
-          <div class="content">
-            I travel often. L3Fiber is faster and even seems to have more coverage than the others, so I am not sure who is doing the tests, but everywhere I have been, L3Fiber outperforms other internet service providers. 
-          </div>
         </div>
-      </div>
-      <div class="col-lg-4 col-md-6 pt-1">
+      {% endfor %}
+      {% comment %} <div class="col-lg-4 col-md-6 pt-1">
         <div class="shadow rounded bg-white p-4 mt-4">
           <div class="d-block d-sm-flex align-items-center mb-3">
             <div class="mt-3 mt-sm-0 ms-0 ms-sm-3">
@@ -499,7 +496,7 @@
             <br/>
           </div>
         </div>
-      </div>
+      </div> {% endcomment %}
     </div>
   </div>
   <div class="has-shapes" id="transparent-bg-1">

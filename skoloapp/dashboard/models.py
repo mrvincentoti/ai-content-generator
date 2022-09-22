@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.contrib.auth.models import User
@@ -9,6 +10,8 @@ from django.urls import reverse
 import os
 
 # Create your models here.
+
+
 class Profile(models.Model):
     user = models.OneToOneField(
         User,
@@ -20,16 +23,17 @@ class Profile(models.Model):
     province = models.CharField(null=True, blank=True, max_length=100)
     country = models.CharField(null=True, blank=True, max_length=100)
     postalCode = models.CharField(null=True, blank=True, max_length=100)
-    profileImage = ResizedImageField(size=[100,100], quality=90, upload_to='profile_image')
-    #### ADD OTHER VARIABLES HERE
+    profileImage = ResizedImageField(
+        size=[100, 100], quality=90, upload_to='profile_image')
+    # ADD OTHER VARIABLES HERE
 
-    #Utility Variable
+    # Utility Variable
     uniqueId = models.CharField(null=True, blank=True, max_length=100)
     slug = models.SlugField(max_length=500, unique=True, blank=True, null=True)
     date_created = models.DateTimeField(blank=True, null=True)
     last_updated = models.DateTimeField(blank=True, null=True)
 
-    #Permissions
+    # Permissions
     is_kam = models.BooleanField(default=False)
     is_cso = models.BooleanField(default=False)
     is_management = models.BooleanField(default=False)
@@ -49,6 +53,13 @@ class Profile(models.Model):
         if self.is_management is None:
             self.is_management = False
 
-        self.slug = slugify('{} {} {}'.format(self.user.first_name, self.user.last_name, self.user.email))
+        self.slug = slugify('{} {} {}'.format(
+            self.user.first_name, self.user.last_name, self.user.email))
         self.last_updated = timezone.localtime(timezone.now())
         super(Profile, self).save(*args, **kwargs)
+
+
+class Home(models.Model):
+    title = models.CharField(max_length=255)
+    content = models.CharField(max_length=244444)
+    image = models.ImageField(upload_to='images')

@@ -5,46 +5,55 @@ from django import forms
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Submit, Row, Column
 
+
 class ProfileForm(forms.ModelForm):
     first_name = forms.CharField(
-        required = True,
+        required=True,
         label='First Name',
-        widget=forms.TextInput(attrs={'class': 'form-control mb-3', 'placeholder': 'Enter First Name'}),
+        widget=forms.TextInput(
+            attrs={'class': 'form-control mb-3', 'placeholder': 'Enter First Name'}),
     )
     last_name = forms.CharField(
-        required = False,
+        required=False,
         label='Last Name',
-        widget=forms.TextInput(attrs={'class': 'form-control mb-3', 'placeholder': 'Enter Last Name'}),
+        widget=forms.TextInput(
+            attrs={'class': 'form-control mb-3', 'placeholder': 'Enter Last Name'}),
     )
     addressLine1 = forms.CharField(
-        required = True,
+        required=True,
         label='Address Line 1',
-        widget=forms.TextInput(attrs={'class': 'form-control mb-3', 'placeholder': 'Enter Address Line 1'}),
+        widget=forms.TextInput(
+            attrs={'class': 'form-control mb-3', 'placeholder': 'Enter Address Line 1'}),
     )
     addressLine2 = forms.CharField(
-        required = False,
+        required=False,
         label='Address Line 2',
-        widget=forms.TextInput(attrs={'class': 'form-control mb-3', 'placeholder': 'Enter Address Line 1'}),
+        widget=forms.TextInput(
+            attrs={'class': 'form-control mb-3', 'placeholder': 'Enter Address Line 1'}),
     )
     city = forms.CharField(
-        required = True,
+        required=True,
         label='City',
-        widget=forms.TextInput(attrs={'class': 'form-control mb-3', 'placeholder': 'Enter City'}),
+        widget=forms.TextInput(
+            attrs={'class': 'form-control mb-3', 'placeholder': 'Enter City'}),
     )
     province = forms.CharField(
-        required = True,
+        required=True,
         label='Province',
-        widget=forms.TextInput(attrs={'class': 'form-control mb-3', 'placeholder': 'Enter Province'}),
+        widget=forms.TextInput(
+            attrs={'class': 'form-control mb-3', 'placeholder': 'Enter Province'}),
     )
     country = forms.CharField(
-        required = True,
+        required=True,
         label='Country',
-        widget=forms.TextInput(attrs={'class': 'form-control mb-3', 'placeholder': 'Enter Country'}),
+        widget=forms.TextInput(
+            attrs={'class': 'form-control mb-3', 'placeholder': 'Enter Country'}),
     )
     postalCode = forms.CharField(
-        required = True,
+        required=True,
         label='Postal Code',
-        widget=forms.TextInput(attrs={'class': 'form-control mb-3', 'placeholder': 'Enter Postal Code'}),
+        widget=forms.TextInput(
+            attrs={'class': 'form-control mb-3', 'placeholder': 'Enter Postal Code'}),
     )
 
     def __init__(self, *args, **kwargs):
@@ -67,27 +76,31 @@ class ProfileForm(forms.ModelForm):
                 Column('country', css_class='form-group col-md-6'),
                 Column('postalCode', css_class='form-group col-md-6')
             ),
-            Submit('submit', 'Save Changes', css_class="btn btn-primary me-2 col-md-2")
+            Submit('submit', 'Save Changes',
+                   css_class="btn btn-primary me-2 col-md-2")
         )
 
     class Meta:
-        model=Profile
-        fields=['addressLine1', 'addressLine2', 'city', 'province', 'country','postalCode']
+        model = Profile
+        fields = ['addressLine1', 'addressLine2',
+                  'city', 'province', 'country', 'postalCode']
 
     def save(self, *args, **kwargs):
         user = self.instance.user
         user.first_name = self.cleaned_data.get('first_name')
         user.last_name = self.cleaned_data.get('last_name')
         user.save()
-        profile = super(ProfileForm,self).save(*args, **kwargs)
+        profile = super(ProfileForm, self).save(*args, **kwargs)
         return profile
+
 
 class ProfileImageForm(forms.ModelForm):
     profileImage = forms.ImageField(
-                        required=False,
-                        label='Upload Profile Image',
-                        widget=forms.FileInput(attrs={'class': 'form-control'})
-                    )
+        required=False,
+        label='Upload Profile Image',
+        widget=forms.FileInput(attrs={'class': 'form-control'})
+    )
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
@@ -95,8 +108,56 @@ class ProfileImageForm(forms.ModelForm):
             Row(
                 Column('profileImage', css_class='form-group col-md-12')
             ),
-            Submit('submit', 'Save Image', css_class="btn btn-primary me-2 mb-4 mt-3")
+            Submit('submit', 'Save Image',
+                   css_class="btn btn-primary me-2 mb-4 mt-3")
         )
+
     class Meta:
-        model=Profile
-        fields=['profileImage']
+        model = Profile
+        fields = ['profileImage']
+
+
+class HomeForm(forms.ModelForm):
+
+    title = forms.CharField(
+        required=True,
+        label='Title',
+        widget=forms.TextInput(
+            attrs={'class': 'form-control mb-3', 'placeholder': 'Enter Title'}),
+    )
+
+    content = forms.CharField(
+        required=True,
+        label='Content',
+        widget=forms.Textarea(
+            attrs={'class': 'form-control mb-3', 'placeholder': 'Enter Content'}),
+    )
+
+    image = forms.ImageField(
+        required=False,
+        label='Upload Profile Image',
+        widget=forms.FileInput(attrs={'class': 'form-control'})
+    )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.layout = Layout(
+            Row(
+                Column('title', css_class='form-group col-md-12'),
+            ),
+            Row(
+                Column('content', css_class='form-group col-md-12')
+            ),
+
+            Row(
+                Column('image', css_class='form-group col-md-12')
+            ),
+
+            Submit('submit', 'Save Changes',
+                   css_class="btn btn-primary me-2 col-md-2")
+        )
+
+    class Meta:
+        model = Home
+        fields = ['title', 'content', 'image']
