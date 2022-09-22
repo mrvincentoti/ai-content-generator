@@ -7,4 +7,5 @@ urlpatterns = [
     path('home', views.home, name='dashboard'),
     path('profile', views.profile, name='profile'),
     path('addbanner', views.addbanner, name='addbanner'),
+    path('updatebanner', views.updatebanner, name='updatebanner'),
 ]

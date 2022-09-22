@@ -71,3 +71,8 @@ def addbanner(request):
     else:
         form = HomeForm()
     return render(request, 'dashboard/add.html', {'form': form})
+
+
+def updatebanner(request):
+    # home = Home.objects.get(pk=home_id)
+    return render(request, 'dashboard/updateBanner.html')
