@@ -211,6 +211,9 @@
                 </li>
               </ul>
             </li>
+
+            <!-- Banner -->
+
             <li class="menu-item">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
@@ -218,25 +221,62 @@
               </a>
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a
-                    href="{% url 'updatebanner' %}"
-                    class="menu-link"
-                    target="_blank"
-                  >
-                    <div data-i18n="Basic">List Banner</div>
+                  <a href="{% url 'addbanner' %}" class="menu-link">
+                    <div data-i18n="Basic">Add Banner</div>
                   </a>
                 </li>
+
                 <li class="menu-item">
-                  <a
-                    href="{% url 'addbanner' %}"
-                    class="menu-link"
-                    target="_blank"
-                  >
-                    <div data-i18n="Basic">Add Banner</div>
+                  <a href="{% url 'updatebanner' %}" class="menu-link">
+                    <div data-i18n="Basic">Edit Banner</div>
                   </a>
                 </li>
               </ul>
             </li>
+
+            <!-- Pricing-->
+
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+                <div data-i18n="Authentications">Pricing</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="{% url 'addpricing' %}" class="menu-link">
+                    <div data-i18n="Basic">Add Pricing</div>
+                  </a>
+                </li>
+
+                <li class="menu-item">
+                  <a href="{% url 'listpricing' %}" class="menu-link">
+                    <div data-i18n="Basic">Edit Pricing</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Feedback-->
+
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+                <div data-i18n="Authentications">Feedback</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="{% url 'addfeedback' %}" class="menu-link">
+                    <div data-i18n="Basic">Add Feedback</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="{% url 'listfeedback' %}" class="menu-link">
+                    <div data-i18n="Basic">Delete Feedback</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
             <!-- Layouts -->
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Blog Assistant</span>

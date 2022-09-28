@@ -63,3 +63,23 @@ class Home(models.Model):
     title = models.CharField(max_length=255)
     content = models.CharField(max_length=244444)
     image = models.ImageField(upload_to='images')
+
+
+class Pricing(models.Model):
+    title = models.CharField(max_length=255)
+    price = models.CharField(max_length=255)
+    duration = models.CharField(max_length=244444)
+    quantity = models.CharField(max_length=244444)
+    speed = models.CharField(max_length=244444)
+
+    def __str__(self):
+        return self.title
+
+
+class Feedback(models.Model):
+    name = models.CharField(max_length=255)
+    location = models.CharField(max_length=255)
+    content = models.CharField(max_length=244444)
+
+    def __str__(self):
+        return self.name

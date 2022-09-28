@@ -2,8 +2,8 @@
 <!-- Content -->
 <div class="container-fluid flex-grow-1 container-p-y">
   <!-- Layout Demo -->
+  <h1>Add Pricing</h1>
 
-  <h1>Edit Banner</h1>
   <div class="row">
     <div class="col-md-12 col-xs-12 col-xl-12">
       <div class="card mb-4">
@@ -16,14 +16,13 @@
         <div class="card-body">
           <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %} {{ form.as_p }}
-
             <button type="submit" class="btn btn-primary">Send</button>
           </form>
         </div>
       </div>
     </div>
   </div>
-  <!--/ Layout Demo -->
+  <!-- Layout Demo -->
 </div>
 <!-- / Content -->
 {% endblock %}

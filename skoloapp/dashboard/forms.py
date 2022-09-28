@@ -161,3 +161,116 @@ class HomeForm(forms.ModelForm):
     class Meta:
         model = Home
         fields = ['title', 'content', 'image']
+
+
+class PricingForm(forms.ModelForm):
+
+    title = forms.CharField(
+        required=True,
+        label='Title',
+        widget=forms.TextInput(
+            attrs={'class': 'form-control mb-3', 'placeholder': 'Enter Title'}),
+    )
+
+    price = forms.CharField(
+        required=True,
+        label='Price',
+        widget=forms.TextInput(
+            attrs={'class': 'form-control mb-3', 'placeholder': 'Enter Price'}),
+    )
+
+    duration = forms.CharField(
+        required=True,
+        label='Duration',
+        widget=forms.TextInput(
+            attrs={'class': 'form-control mb-3', 'placeholder': 'Enter Duration'}),
+    )
+
+    quantity = forms.CharField(
+        required=True,
+        label='Quantity',
+        widget=forms.TextInput(
+            attrs={'class': 'form-control mb-3', 'placeholder': 'Enter Quantity'}),
+    )
+
+    speed = forms.CharField(
+        required=True,
+        label='Speed',
+        widget=forms.TextInput(
+            attrs={'class': 'form-control mb-3', 'placeholder': 'Enter Speed'}),
+    )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.layout = Layout(
+            Row(
+                Column('title', css_class='form-group col-md-12'),
+            ),
+            Row(
+                Column('price', css_class='form-group col-md-12')
+            ),
+
+            Row(
+                Column('duration', css_class='form-group col-md-12')
+            ),
+            Row(
+                Column('quantity', css_class='form-group col-md-12')
+            ),
+            Row(
+                Column('speed', css_class='form-group col-md-12')
+            ),
+
+            Submit('submit', 'Save Changes',
+                   css_class="btn btn-primary me-2 col-md-2")
+        )
+
+    class Meta:
+        model = Pricing
+        fields = ['title', 'price', 'duration', 'quantity', 'speed']
+
+
+class FeedbackForm(forms.ModelForm):
+
+    name = forms.CharField(
+        required=True,
+        label='Name',
+        widget=forms.TextInput(
+            attrs={'class': 'form-control mb-3', 'placeholder': 'Enter Name'}),
+    )
+    location = forms.CharField(
+        required=True,
+        label='Location',
+        widget=forms.TextInput(
+            attrs={'class': 'form-control mb-3', 'placeholder': 'Enter Address'}),
+    )
+
+    content = forms.CharField(
+        required=True,
+        label='Content',
+        widget=forms.Textarea(
+            attrs={'class': 'form-control mb-3', 'placeholder': 'Enter Content'}),
+    )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.layout = Layout(
+            Row(
+                Column('name', css_class='form-group col-md-12'),
+            ),
+            Row(
+                Column('location', css_class='form-group col-md-12')
+            ),
+
+            Row(
+                Column('content', css_class='form-group col-md-12')
+            ),
+
+            Submit('submit', 'Save Changes',
+                   css_class="btn btn-primary me-2 col-md-2")
+        )
+
+    class Meta:
+        model = Feedback
+        fields = ['name', 'location', 'content']

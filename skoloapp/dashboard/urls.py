@@ -8,4 +8,11 @@ urlpatterns = [
     path('profile', views.profile, name='profile'),
     path('addbanner', views.addbanner, name='addbanner'),
     path('updatebanner', views.updatebanner, name='updatebanner'),
+    path('addpricing', views.addpricing, name='addpricing'),
+    path('listpricing', views.listpricing, name='listpricing'),
+    path('updatepricing/<pricing_id>', views.updatepricing, name='updatepricing'),
+    path('addfeedback', views.addfeedback, name='addfeedback'),
+    path('listfeedback', views.listfeedback, name='listfeedback'),
+    path('deletefeedback/<feedback_id>',
+         views.deletefeedback, name='deletefeedback'),
 ]

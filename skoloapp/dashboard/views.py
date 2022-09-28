@@ -1,4 +1,5 @@
 from hashlib import new
+from site import venv
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
@@ -74,5 +75,56 @@ def addbanner(request):
 
 
 def updatebanner(request):
-    # home = Home.objects.get(pk=home_id)
-    return render(request, 'dashboard/updateBanner.html')
+    home = Home.objects.get(pk=1)
+    form = HomeForm(request.POST or None, instance=home)
+    if form.is_valid():
+        form.save()
+    return render(request, 'dashboard/updateBanner.html', {'home': home, 'form': form})
+
+
+def addpricing(request):
+    if request.method == "POST":
+        form = PricingForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return render(request, 'dashboard/addpricing.html', {'form': form})
+
+    else:
+        form = PricingForm()
+    return render(request, 'dashboard/addpricing.html', {'form': form})
+
+
+def listpricing(request):
+    pricing = Pricing.objects.all()
+    return render(request, 'dashboard/listpricing.html', {'pricing': pricing})
+
+
+def updatepricing(request, pricing_id):
+    pricing = Pricing.objects.get(pk=pricing_id)
+    form = PricingForm(request.POST or None, instance=pricing)
+    if form.is_valid():
+        form.save()
+    return render(request, 'dashboard/updateBanner.html', {'pricing': home, 'form': form})
+
+
+def addfeedback(request):
+    if request.method == "POST":
+        form = FeedbackForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return render(request, 'dashboard/addfeedback.html', {'form': form})
+
+    else:
+        form = FeedbackForm()
+    return render(request, 'dashboard/addfeedback.html', {'form': form})
+
+
+def listfeedback(request):
+    feedback = Feedback.objects.all()
+    return render(request, 'dashboard/listfeedback.html', {'feedback': feedback})
+
+
+def deletefeedback(request, feedback_id):
+    feedback = Feedback.objects.get(pk=feedback_id)
+    feedback.delete()
+    return redirect('addfeedback')
