@@ -277,6 +277,26 @@
               </ul>
             </li>
 
+            <!-- Faq-->
+            <li class="menu-item">
+              <a href="javascript:void(0);" class="menu-link menu-toggle">
+                <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+                <div data-i18n="Authentications">Faq</div>
+              </a>
+              <ul class="menu-sub">
+                <li class="menu-item">
+                  <a href="{% url 'addfaq' %}" class="menu-link">
+                    <div data-i18n="Basic">Add Faq</div>
+                  </a>
+                </li>
+
+                <li class="menu-item">
+                  <a href="{% url 'listfaqs' %}" class="menu-link">
+                    <div data-i18n="Basic">Delete Faq</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
             <!-- Layouts -->
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Blog Assistant</span>

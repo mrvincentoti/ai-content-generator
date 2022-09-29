@@ -13,14 +13,14 @@ def home(request):
     # about = About.objects.all()
     pricing = Pricing.objects.all().order_by('id')
     feedback = Feedback.objects.all()
-    # faqs = Faqs.objects.all()
+    faqs = Faqs.objects.all()
 
     context = {
         'homes': homes,
         # 'about': about,
         'pricing': pricing,
         'feedback': feedback,
-        # 'faqs': faqs,
+        'faqs': faqs,
     }
     return render(request, '../templates/ftth/home.html', context=context)
 

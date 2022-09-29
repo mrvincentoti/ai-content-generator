@@ -274,3 +274,40 @@ class FeedbackForm(forms.ModelForm):
     class Meta:
         model = Feedback
         fields = ['name', 'location', 'content']
+
+
+class FaqsForm(forms.ModelForm):
+
+    title = forms.CharField(
+        required=True,
+        label='Title',
+        widget=forms.TextInput(
+            attrs={'class': 'form-control mb-3', 'placeholder': 'Enter Title'}),
+    )
+
+    content = forms.CharField(
+        required=True,
+        label='Content',
+        widget=forms.Textarea(
+            attrs={'class': 'form-control mb-3', 'placeholder': 'Enter Content'}),
+    )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.layout = Layout(
+            Row(
+                Column('title', css_class='form-group col-md-12'),
+            ),
+
+            Row(
+                Column('content', css_class='form-group col-md-12')
+            ),
+
+            Submit('submit', 'Save Changes',
+                   css_class="btn btn-primary me-2 col-md-2")
+        )
+
+    class Meta:
+        model = Faqs
+        fields = ['title', 'content']

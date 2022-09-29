@@ -128,3 +128,26 @@ def deletefeedback(request, feedback_id):
     feedback = Feedback.objects.get(pk=feedback_id)
     feedback.delete()
     return redirect('addfeedback')
+
+
+def addfaq(request):
+    if request.method == "POST":
+        form = FaqsForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return render(request, 'dashboard/addfaq.html', {'form': form})
+
+    else:
+        form = FaqsForm()
+    return render(request, 'dashboard/addfaq.html', {'form': form})
+
+
+def listfaqs(request):
+    faq = Faqs.objects.all()
+    return render(request, 'dashboard/listfaqs.html', {'faq': faq})
+
+
+def deletefaq(request, faq_id):
+    faq = Faqs.objects.get(pk=faq_id)
+    faq.delete()
+    return redirect('addfaq')

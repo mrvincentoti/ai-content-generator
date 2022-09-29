@@ -15,4 +15,7 @@ urlpatterns = [
     path('listfeedback', views.listfeedback, name='listfeedback'),
     path('deletefeedback/<feedback_id>',
          views.deletefeedback, name='deletefeedback'),
+    path('addfaq', views.addfaq, name='addfaq'),
+    path('listfaqs', views.listfaqs, name='listfaqs'),
+    path('deletefaq/<faq_id>', views.deletefaq, name='deletefaq'),
 ]

@@ -548,149 +548,151 @@
       </div>
       <div class="col-lg-6">
         <div class="accordion shadow rounded py-5 px-0 px-lg-4 bg-white position-relative" id="accordionFAQ">
+          {% for faq in faqs %}
           <div class="accordion-item p-1 mb-2">
-            <h2 class="accordion-header accordion-button h5 border-0 active"
-              id="heading-1" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapse-1" aria-expanded="true"
-              aria-controls="collapse-1">How long will the installation take?
+            <h2 class="accordion-header accordion-button h5 border-0"
+              id="heading-{{faq.id}}" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse-{{faq.id}}" aria-expanded="true"
+              aria-controls="collapse-{{faq.id}}">{{faq.title}}
             </h2>
-            <div id="collapse-1"
-              class="accordion-collapse collapse border-0 show"
-              aria-labelledby="heading-1" data-bs-parent="#accordionFAQ">
+            <div id="collapse-{{faq.id}}"
+              class="accordion-collapse collapse border-0"
+              aria-labelledby="heading-{{faq.id}}" data-bs-parent="#accordionFAQ">
               <div class="accordion-body py-0 content">
-                   2weeks, provided there is terminal close to your home. Typically, within 10 –14 working days
+                   {{faq.content}}
               </div>
             </div>
           </div>
+          {% endfor %}
           <!--/Accordion-->
-          <div class="accordion-item p-1 mb-2">
+          {% comment %} <div class="accordion-item p-1 mb-2">
+              <h2 class="accordion-header accordion-button h5 border-0 "
+              id="heading-a443e01b4db47b3f4a1267e10594576d52730ec1" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse-a443e01b4db47b3f4a1267e10594576d52730ec1" aria-expanded="false"
+              aria-controls="collapse-a443e01b4db47b3f4a1267e10594576d52730ec1">Will i get unlimited internet?
+            </h2>
+            <div id="collapse-a443e01b4db47b3f4a1267e10594576d52730ec1" class="accordion-collapse collapse border-0 "
+            aria-labelledby="heading-a443e01b4db47b3f4a1267e10594576d52730ec1" data-bs-parent="#accordionFAQ">
+            <div class="accordion-body py-0 content">
+              Yes, this is very important to us, we offer only truly unlimited internet without the gimmicks data caps or bandwidth throttling
+            </div>
+            </div>
+          </div>
+        <!--/Accordion-->
+         <div class="accordion-item p-1 mb-2">
+              <h2 class="accordion-header accordion-button h5 border-0 "
+              id="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd" aria-expanded="false"
+              aria-controls="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd">Are there any fair usage policies on your bandwidth?
+            </h2>
+            <div id="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd" class="accordion-collapse collapse border-0 "
+            aria-labelledby="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" data-bs-parent="#accordionFAQ">
+            <div class="accordion-body py-0 content">
+              Yes, this is very important to us, we offer only truly unlimited internet without the gimmicks data caps or bandwidth throttling
+            </div>
+          </div>
+         </div>
+      <!--/Accordion-->
+        <div class="accordion-item p-1 mb-2">
+          <h2 class="accordion-header accordion-button h5 border-0 "
+          id="heading-3e13e9676a9cd6a6f8bfbe6e1e9fc0881ef247b3" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapse-3e13e9676a9cd6a6f8bfbe6e1e9fc0881ef247b3" aria-expanded="false"
+          aria-controls="collapse-3e13e9676a9cd6a6f8bfbe6e1e9fc0881ef247b3">How can i make payment for a plan or renew my plan?
+        </h2>
+        <div id="collapse-3e13e9676a9cd6a6f8bfbe6e1e9fc0881ef247b3" class="accordion-collapse collapse border-0 "
+        aria-labelledby="heading-3e13e9676a9cd6a6f8bfbe6e1e9fc0881ef247b3" data-bs-parent="#accordionFAQ">
+        <div class="accordion-body py-0 content">
+          Yes, this is very important to us, we offer only truly unlimited internet without the gimmicks data caps or bandwidth throttling
+        </div>
+        </div>
+        </div>
+    <!--/Accordion-->
+        <div class="accordion-item p-1 mb-2">
+              <h2 class="accordion-header accordion-button h5 border-0 "
+              id="heading-0c2f829793a1f0562fea97120357dd2d43319164" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse-0c2f829793a1f0562fea97120357dd2d43319164" aria-expanded="false"
+              aria-controls="collapse-0c2f829793a1f0562fea97120357dd2d43319164">How do I contact customer support?
+            </h2>
+            <div id="collapse-0c2f829793a1f0562fea97120357dd2d43319164" class="accordion-collapse collapse border-0 "
+            aria-labelledby="heading-0c2f829793a1f0562fea97120357dd2d43319164" data-bs-parent="#accordionFAQ">
+            <div class="accordion-body py-0 content">
+              Yes, this is very important to us, we offer only truly unlimited internet without the gimmicks data caps or bandwidth throttling
+            </div>
+          </div>
+        </div>
+    <!--/Accordion-->
+        <div class="accordion-item p-1 mb-2">
+                <h2 class="accordion-header accordion-button h5 border-0 "
+                id="heading-9fe6730e26db16f15763887c30a614caa075f518" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse-9fe6730e26db16f15763887c30a614caa075f518" aria-expanded="false"
+                aria-controls="collapse-9fe6730e26db16f15763887c30a614caa075f518">What is L3Fiber service level agreement (sla)?
+              </h2>
+              <div id="collapse-9fe6730e26db16f15763887c30a614caa075f518" class="accordion-collapse collapse border-0 "
+              aria-labelledby="heading-9fe6730e26db16f15763887c30a614caa075f518" data-bs-parent="#accordionFAQ">
+                <div class="accordion-body py-0 content">
+                  Yes, this is very important to us, we offer only truly unlimited internet without the gimmicks data caps or bandwidth throttling
+                </div>
+              </div>
+        </div>
+    <!--/Accordion-->
+        <div class="accordion-item p-1 mb-2">
+              <h2 class="accordion-header accordion-button h5 border-0 "
+              id="heading-10fe6730e26db16f15763887c30a614caa075f518" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapse-10fe6730e26db16f15763887c30a614caa075f518" aria-expanded="false"
+              aria-controls="collapse-10fe6730e26db16f15763887c30a614caa075f518">Once installation is completed, do i own the infrastructure in my residence? 
+            </h2>
+            <div id="collapse-10fe6730e26db16f15763887c30a614caa075f518" class="accordion-collapse collapse border-0 "
+            aria-labelledby="heading-10fe6730e26db16f15763887c30a614caa075f518" data-bs-parent="#accordionFAQ">
+              <div class="accordion-body py-0 content">
+                Yes, this is very important to us, we offer only truly unlimited internet without the gimmicks data caps or bandwidth throttling
+              </div>
+            </div>
+        </div>
+    <!--/Accordion-->
+        <div class="accordion-item p-1 mb-2">
             <h2 class="accordion-header accordion-button h5 border-0 "
-            id="heading-a443e01b4db47b3f4a1267e10594576d52730ec1" type="button" data-bs-toggle="collapse"
-            data-bs-target="#collapse-a443e01b4db47b3f4a1267e10594576d52730ec1" aria-expanded="false"
-            aria-controls="collapse-a443e01b4db47b3f4a1267e10594576d52730ec1">Will i get unlimited internet?
+            id="heading-11fe6730e26db16f15763887c30a614caa075f518" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapse-11fe6730e26db16f15763887c30a614caa075f518" aria-expanded="false"
+            aria-controls="collapse-11fe6730e26db16f15763887c30a614caa075f518">Can i resell my bandwidth? 
           </h2>
-          <div id="collapse-a443e01b4db47b3f4a1267e10594576d52730ec1" class="accordion-collapse collapse border-0 "
-          aria-labelledby="heading-a443e01b4db47b3f4a1267e10594576d52730ec1" data-bs-parent="#accordionFAQ">
+          <div id="collapse-11fe6730e26db16f15763887c30a614caa075f518" class="accordion-collapse collapse border-0 "
+          aria-labelledby="heading-11fe6730e26db16f15763887c30a614caa075f518" data-bs-parent="#accordionFAQ">
+            <div class="accordion-body py-0 content">
+              Yes, this is very important to us, we offer only truly unlimited internet without the gimmicks data caps or bandwidth throttling
+            </div>
+          </div>
+        </div>
+    <!--/Accordion-->
+        <div class="accordion-item p-1 mb-2">
+            <h2 class="accordion-header accordion-button h5 border-0 "
+            id="heading-12fe6730e26db16f15763887c30a614caa075f518" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapse-12fe6730e26db16f15763887c30a614caa075f518" aria-expanded="false"
+            aria-controls="collapse-12fe6730e26db16f15763887c30a614caa075f518">If i know another tenant in my building who wants L3Fiber service, can i get a referral bonus?
+          </h2>
+          <div id="collapse-12fe6730e26db16f15763887c30a614caa075f518" class="accordion-collapse collapse border-0 "
+          aria-labelledby="heading-12fe6730e26db16f15763887c30a614caa075f518" data-bs-parent="#accordionFAQ">
+            <div class="accordion-body py-0 content">
+              Yes, this is very important to us, we offer only truly unlimited internet without the gimmicks data caps or bandwidth throttling
+            </div>
+          </div>
+        </div>
+    <!--/Accordion-->
+      <div class="accordion-item p-1 mb-2">
+          <h2 class="accordion-header accordion-button h5 border-0 "
+          id="heading-8fe6730e26db16f15763887c30a614caa075f518" type="button" data-bs-toggle="collapse"
+          data-bs-target="#collapse-8fe6730e26db16f15763887c30a614caa075f518" aria-expanded="false"
+          aria-controls="collapse-8fe6730e26db16f15763887c30a614caa075f518">Can i push my subscription after making payment and i have to travel? 
+        </h2>
+        <div id="collapse-8fe6730e26db16f15763887c30a614caa075f518" class="accordion-collapse collapse border-0 "
+        aria-labelledby="heading-8fe6730e26db16f15763887c30a614caa075f518" data-bs-parent="#accordionFAQ">
           <div class="accordion-body py-0 content">
             Yes, this is very important to us, we offer only truly unlimited internet without the gimmicks data caps or bandwidth throttling
           </div>
-          </div>
         </div>
-        <!--/Accordion-->
-        <div class="accordion-item p-1 mb-2">
-          <h2 class="accordion-header accordion-button h5 border-0 "
-          id="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" type="button" data-bs-toggle="collapse"
-          data-bs-target="#collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd" aria-expanded="false"
-          aria-controls="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd">Are there any fair usage policies on your bandwidth?
-        </h2>
-        <div id="collapse-4b82be4be873c8ad699fa97049523ac86b67a8bd" class="accordion-collapse collapse border-0 "
-        aria-labelledby="heading-4b82be4be873c8ad699fa97049523ac86b67a8bd" data-bs-parent="#accordionFAQ">
-        <div class="accordion-body py-0 content">
-          Yes, this is very important to us, we offer only truly unlimited internet without the gimmicks data caps or bandwidth throttling
-        </div>
-        </div>
-      </div>
-      <!--/Accordion-->
-      <div class="accordion-item p-1 mb-2">
-        <h2 class="accordion-header accordion-button h5 border-0 "
-        id="heading-3e13e9676a9cd6a6f8bfbe6e1e9fc0881ef247b3" type="button" data-bs-toggle="collapse"
-        data-bs-target="#collapse-3e13e9676a9cd6a6f8bfbe6e1e9fc0881ef247b3" aria-expanded="false"
-        aria-controls="collapse-3e13e9676a9cd6a6f8bfbe6e1e9fc0881ef247b3">How can i make payment for a plan or renew my plan?
-      </h2>
-      <div id="collapse-3e13e9676a9cd6a6f8bfbe6e1e9fc0881ef247b3" class="accordion-collapse collapse border-0 "
-      aria-labelledby="heading-3e13e9676a9cd6a6f8bfbe6e1e9fc0881ef247b3" data-bs-parent="#accordionFAQ">
-      <div class="accordion-body py-0 content">
-        Yes, this is very important to us, we offer only truly unlimited internet without the gimmicks data caps or bandwidth throttling
-      </div>
-      </div>
-      </div>
-    <!--/Accordion-->
-    <div class="accordion-item p-1 mb-2">
-      <h2 class="accordion-header accordion-button h5 border-0 "
-      id="heading-0c2f829793a1f0562fea97120357dd2d43319164" type="button" data-bs-toggle="collapse"
-      data-bs-target="#collapse-0c2f829793a1f0562fea97120357dd2d43319164" aria-expanded="false"
-      aria-controls="collapse-0c2f829793a1f0562fea97120357dd2d43319164">How do I contact customer support?
-    </h2>
-    <div id="collapse-0c2f829793a1f0562fea97120357dd2d43319164" class="accordion-collapse collapse border-0 "
-    aria-labelledby="heading-0c2f829793a1f0562fea97120357dd2d43319164" data-bs-parent="#accordionFAQ">
-    <div class="accordion-body py-0 content">
-      Yes, this is very important to us, we offer only truly unlimited internet without the gimmicks data caps or bandwidth throttling
-    </div>
-  </div>
-    </div>
-    <!--/Accordion-->
-    <div class="accordion-item p-1 mb-2">
-        <h2 class="accordion-header accordion-button h5 border-0 "
-        id="heading-9fe6730e26db16f15763887c30a614caa075f518" type="button" data-bs-toggle="collapse"
-        data-bs-target="#collapse-9fe6730e26db16f15763887c30a614caa075f518" aria-expanded="false"
-        aria-controls="collapse-9fe6730e26db16f15763887c30a614caa075f518">What is L3Fiber service level agreement (sla)?
-      </h2>
-      <div id="collapse-9fe6730e26db16f15763887c30a614caa075f518" class="accordion-collapse collapse border-0 "
-      aria-labelledby="heading-9fe6730e26db16f15763887c30a614caa075f518" data-bs-parent="#accordionFAQ">
-        <div class="accordion-body py-0 content">
-          Yes, this is very important to us, we offer only truly unlimited internet without the gimmicks data caps or bandwidth throttling
-        </div>
-      </div>
-    </div>
-    <!--/Accordion-->
-    <div class="accordion-item p-1 mb-2">
-        <h2 class="accordion-header accordion-button h5 border-0 "
-        id="heading-10fe6730e26db16f15763887c30a614caa075f518" type="button" data-bs-toggle="collapse"
-        data-bs-target="#collapse-10fe6730e26db16f15763887c30a614caa075f518" aria-expanded="false"
-        aria-controls="collapse-10fe6730e26db16f15763887c30a614caa075f518">Once installation is completed, do i own the infrastructure in my residence? 
-      </h2>
-      <div id="collapse-10fe6730e26db16f15763887c30a614caa075f518" class="accordion-collapse collapse border-0 "
-      aria-labelledby="heading-10fe6730e26db16f15763887c30a614caa075f518" data-bs-parent="#accordionFAQ">
-        <div class="accordion-body py-0 content">
-          Yes, this is very important to us, we offer only truly unlimited internet without the gimmicks data caps or bandwidth throttling
-        </div>
-      </div>
-    </div>
-    <!--/Accordion-->
-    <div class="accordion-item p-1 mb-2">
-        <h2 class="accordion-header accordion-button h5 border-0 "
-        id="heading-11fe6730e26db16f15763887c30a614caa075f518" type="button" data-bs-toggle="collapse"
-        data-bs-target="#collapse-11fe6730e26db16f15763887c30a614caa075f518" aria-expanded="false"
-        aria-controls="collapse-11fe6730e26db16f15763887c30a614caa075f518">Can i resell my bandwidth? 
-      </h2>
-      <div id="collapse-11fe6730e26db16f15763887c30a614caa075f518" class="accordion-collapse collapse border-0 "
-      aria-labelledby="heading-11fe6730e26db16f15763887c30a614caa075f518" data-bs-parent="#accordionFAQ">
-        <div class="accordion-body py-0 content">
-          Yes, this is very important to us, we offer only truly unlimited internet without the gimmicks data caps or bandwidth throttling
-        </div>
-      </div>
-    </div>
-    <!--/Accordion-->
-    <div class="accordion-item p-1 mb-2">
-        <h2 class="accordion-header accordion-button h5 border-0 "
-        id="heading-12fe6730e26db16f15763887c30a614caa075f518" type="button" data-bs-toggle="collapse"
-        data-bs-target="#collapse-12fe6730e26db16f15763887c30a614caa075f518" aria-expanded="false"
-        aria-controls="collapse-12fe6730e26db16f15763887c30a614caa075f518">If i know another tenant in my building who wants L3Fiber service, can i get a referral bonus?
-      </h2>
-      <div id="collapse-12fe6730e26db16f15763887c30a614caa075f518" class="accordion-collapse collapse border-0 "
-      aria-labelledby="heading-12fe6730e26db16f15763887c30a614caa075f518" data-bs-parent="#accordionFAQ">
-        <div class="accordion-body py-0 content">
-          Yes, this is very important to us, we offer only truly unlimited internet without the gimmicks data caps or bandwidth throttling
-        </div>
-      </div>
-    </div>
-    <!--/Accordion-->
-    <div class="accordion-item p-1 mb-2">
-        <h2 class="accordion-header accordion-button h5 border-0 "
-        id="heading-8fe6730e26db16f15763887c30a614caa075f518" type="button" data-bs-toggle="collapse"
-        data-bs-target="#collapse-8fe6730e26db16f15763887c30a614caa075f518" aria-expanded="false"
-        aria-controls="collapse-8fe6730e26db16f15763887c30a614caa075f518">Can i push my subscription after making payment and i have to travel? 
-      </h2>
-      <div id="collapse-8fe6730e26db16f15763887c30a614caa075f518" class="accordion-collapse collapse border-0 "
-      aria-labelledby="heading-8fe6730e26db16f15763887c30a614caa075f518" data-bs-parent="#accordionFAQ">
-        <div class="accordion-body py-0 content">
-          Yes, this is very important to us, we offer only truly unlimited internet without the gimmicks data caps or bandwidth throttling
-        </div>
-      </div>
-    </div>
+      </div> {% endcomment %}
     <!--/Accordion-->
         </div>
-      </div>
+        </div>
       <div class="col-lg-4 mt-4 mt-lg-0">
         <div class="shadow rounded py-5 px-4 ms-0 ms-lg-4 bg-white position-relative">
           <div class="block mx-0 mx-lg-3 mt-0">
