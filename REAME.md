@@ -3,9 +3,13 @@
 ###### SETUP
 
 1. clone the repo `git clone repo_url`
-2. create a virtual environment `python -m virtualenv venv`
-3. activate the virtual environment on linux `source venv/bin/activate` on windows `venv\Scripts\activate`
-4. install dependencies `pip install -r requirements.txt`
+2. install virtualenv(on windows `py -m pip install --upgrade pip` on linux `python3 -m pip install --user --upgrade pip`)
+3. create a virtual environment (on linux `python -m virtualenv venv`, on windows `py -m venv venv`)
+4. activate the virtual environment on linux `source venv/bin/activate` on windows `venv\Scripts\activate`
+5. install dependencies `pip install -r requirements.txt`
+
+###### FREEZE REQUIREMENTS
+1. run this command in the same location wehre requirement.txt is `pip freeze > requirements.txt`
 
 ###### WEBSITE COLORS
 
