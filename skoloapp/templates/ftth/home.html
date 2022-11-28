@@ -16,17 +16,34 @@
             <div class="col-lg-12 mb-4 pb-2">
               <div class="form-group">
                 <label for="loan_repayment" class="form-label">Where do you live</label>
-                <input type="text" class="form-control shadow-none" id="loan_repayment" placeholder="E.g Wuye, Abuja">
+                <select class="form-select form-control shadow-none" aria-label="Default select example" name="location" required>
+                  <option selected>Choose your location</option>
+                  <option value="1">Area 4</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-lg-12 mb-4 pb-2">
+              <div class="form-group">
+                <label for="loan_email_address" class="form-label">Your Full Name</label>
+                <input type="text" class="form-control shadow-none" id="loan_name" placeholder="E.g John Doe" required>
               </div>
             </div>
             <div class="col-lg-12 mb-4 pb-2">
               <div class="form-group">
                 <label for="loan_email_address" class="form-label">Your email address</label>
-                <input type="email" class="form-control shadow-none" id="loan_email_address">
+                <input type="email" class="form-control shadow-none" id="loan_email_address" placeholder="E.g johndoe@gmail.com" required>
+              </div>
+            </div>
+            <div class="col-lg-12 mb-4 pb-2">
+              <div class="form-group">
+                <label for="loan_email_address" class="form-label">Your Telephone number</label>
+                <input type="number" class="form-control shadow-none" id="loan_number" required>
               </div>
             </div>
             <div class="col-lg-12">
-              <button type="submit" class="btn btn-primary w-100">Check</button>
+              <button id="check" type="button" class="btn btn-primary w-100">Check</button>
             </div>
           </div>
         </form>
