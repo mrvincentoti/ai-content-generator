@@ -110,6 +110,13 @@
                     <div class="block">
                         <div class="content">
                             <span class="h5" style="font-size: 30px;">Service Request</span>
+                            {% if messages %}
+                                {% for message in messages %}
+                                    <div class="alert alert-dismissible alert-success text-center" style="color: green; font-weight: bold; font-size: 20px;">
+                                    <strong>{{message}}</strong>
+                                    </div>
+                                {% endfor %}
+                            {% endif %}
                             <hr/>
                         </div>
                     </div>
@@ -206,7 +213,7 @@
                             <select class="form-control custom-select" id="inputGroupSelect01" name="product" required>
                                 <option selected>Please Select Product</option>
                                 {% for price in prices %}
-                                <option value="{{ price.id }}" {% if price.id == plan_id %}selected{% endif %}>{{ price.title }}</option>
+                                <option value="{{ price.title }}" {% if price.id == plan_id %}selected{% endif %}>{{ price.title }}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -215,8 +222,8 @@
                         <div class="col">
                             <label for="exampleFormControlInput1" class="form-label"><span>Home Type*</span></label>
                             <!--input type="text" class="form-control" placeholder="First name"-->
-                            <select class="form-control custom-select" id="inputGroupSelect01" name="address" required>
-                                <option selected>Please Select Home Type</option>
+                            <select class="form-control custom-select" id="inputGroupSelect01" name="home_type" required>
+                                <option>Please Select Home Type</option>
                                 <option value="2 Bedroom Block Of Flat">2 Bedroom Block Of Flat</option>
                                 <option value="3 Bedroom Block Of Flat">3 Bedroom Block Of Flat</option>
                                 <option value="4 Bedroom Block Of Flat">4 Bedroom Block Of Flat</option>
@@ -232,7 +239,7 @@
                     <div class="row mb-2">
                         <div class="col">
                             <label for="exampleFormControlInput1" class="form-label"><span>Address*</span></label>
-                            <textarea
+                            <textarea name="address"
                             class="form-control shadow-none"
                             id="exampleFormControlTextarea1"
                             rows="3"
