@@ -1,4 +1,5 @@
 from django.shortcuts import render
+import sys
 # from .models import Home, About, Pricing, Feedback, Faqs
 
 
@@ -28,3 +29,15 @@ def home(request):
 def contact(request):
     context = {}
     return render(request, 'ftth/contact.html', context)
+
+
+def plan(request, id):
+    pricing = Pricing.objects.all().order_by('id')
+    context = {
+        'plan_id': id,
+        'prices': pricing,
+    }
+    if request.method == 'POST':
+        print(request.__dict__, file=sys.stderr)
+
+    return render(request, 'ftth/plan.html', context)
