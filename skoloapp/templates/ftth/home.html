@@ -27,23 +27,25 @@
             <div class="col-lg-12 mb-4 pb-2">
               <div class="form-group">
                 <label for="loan_email_address" class="form-label">Your Full Name</label>
-                <input type="text" class="form-control shadow-none" id="loan_name" placeholder="E.g John Doe" required>
+                <input type="text" class="form-control shadow-none" id="client_name" placeholder="E.g John Doe" required>
               </div>
             </div>
             <div class="col-lg-12 mb-4 pb-2">
               <div class="form-group">
                 <label for="loan_email_address" class="form-label">Your email address</label>
-                <input type="email" class="form-control shadow-none" id="loan_email_address" placeholder="E.g johndoe@gmail.com" required>
+                <input type="email" class="form-control shadow-none" id="client_email" placeholder="E.g johndoe@gmail.com" required>
               </div>
             </div>
             <div class="col-lg-12 mb-4 pb-2">
               <div class="form-group">
                 <label for="loan_email_address" class="form-label">Your Telephone number</label>
-                <input type="number" class="form-control shadow-none" id="loan_number" required>
+                <input type="number" class="form-control shadow-none" id="client_phone" required>
               </div>
             </div>
             <div class="col-lg-12">
-              <button type="button" id="checkin" class="btn btn-primary w-100">Check</button>
+              <button type="button" id="checkin" class="btn btn-primary w-100">
+                Check
+              </button>
             </div>
           </div>
         </form>
@@ -55,12 +57,12 @@
 <div class="modal applyLoanModal fade" id="modalStats" tabindex="-1" aria-labelledby="applyLoanLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header border-bottom-0">
-        <h4 class="modal-title" id="exampleModalLabel">Coverage Status</h4>
+      <div class="modal-header border-bottom-0 text-center">
+        <h3 class="modal-title" id="exampleModalLabel"></h3>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <h1 id="statementModal"></h1>
+      <div class="modal-body text-center" id="statementModal">
+        
       </div>
     </div>
   </div>
