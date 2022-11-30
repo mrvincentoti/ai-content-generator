@@ -7,3 +7,5 @@ skoloapp/dashboard/__pycache__/*
 skoloapp/ftthapp/__pycache__/*
 skoloapp/skoloapp/__pycache__/*
 venv
+__pycache__/
+.env
