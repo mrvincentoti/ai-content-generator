@@ -22,8 +22,8 @@ $(window).on("load", function () {
         title = $(this).attr("title");
       navTabs.append(
         '<li class="nav-item"><a class="nav-link" href="#">' +
-          title +
-          "</a></li>"
+        title +
+        "</a></li>"
       );
     });
 
@@ -91,42 +91,5 @@ $(window).on("load", function () {
     duration: 400,
     activeOffset: 40,
     scrollOffset: 10,
-  });
-
-
-  // Ajax request to check availability
-  $("#checkin").click(function (e) {
-    $('#applyLoan').modal('hide');
-    var coverage = {"id":1, "name":"wuse","coverage":"High"}
-    var coverage1 = ("The Coverage is " + coverage.coverage);
-    console.log(coverage1);
-
-    var coverageStatement = document.getElementById('statementModal').innerHTML = coverage1;
-    
-    $('#modalStats').modal('show');
-
-   
-    //e.preventDefault();
-   
-
-    
-    /*var valLocate = document.getElementById("loan_locate");
-    var text = valLocate.options[valLocate.selectedIndex].value;
-
-    console.log(text);
-  
-    var valName = document.getElementById('loan_name').value;
-
-    console.log(valName);
-
-    
-    var valEmail = document.getElementById('loan_email_address').value;
-    console.log(valEmail);
-
-    var valNum = document.getElementById('loan_number').value;
-    console.log(valNum);
-
-    */
-    
   });
 })(jQuery);
