@@ -98,7 +98,7 @@ $(window).on("load", function () {
   $("#checkin").click(function (e) {
     $('#applyLoan').modal('hide');
     var coverage = {"id":1, "name":"wuse","coverage":"High"}
-    //var coverage1 = ("The Coverage is " + coverage.coverage);
+    var coverage1 = ("The Coverage is " + coverage.coverage);
     console.log(coverage1);
 
     var coverageStatement = document.getElementById('statementModal').innerHTML = coverage1;
