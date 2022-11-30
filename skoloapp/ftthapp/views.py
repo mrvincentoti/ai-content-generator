@@ -10,6 +10,7 @@ from dashboard.models import *
 
 def home(request):
     homes = Home.objects.all()
+    coverage = Coverage.objects.all()
     # about = About.objects.all()
     pricing = Pricing.objects.all().order_by('id')
     feedback = Feedback.objects.all()
@@ -21,6 +22,7 @@ def home(request):
         'pricing': pricing,
         'feedback': feedback,
         'faqs': faqs,
+        'coverage': coverage
     }
     return render(request, '../templates/ftth/home.html', context=context)
 

@@ -1,13 +1,13 @@
-/*function checkAvailability() {
+function checkAvailability() {
     console.log('thosbniu');
 }
-*/
+
 
 //click button ajax response in .js
 
 (function ($) {
     "use strict";
-    $("#check").click(function(){
+    $("#checkin").click(function(){
         alert("The paragraph was clicked");
       });
 })
