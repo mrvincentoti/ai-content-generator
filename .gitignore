@@ -8,8 +8,5 @@ skoloapp/dashboard/__pycache__/*
 skoloapp/ftthapp/__pycache__/*
 skoloapp/skoloapp/__pycache__/*
 venv
-<<<<<<< HEAD
-__pycache__/
-=======
->>>>>>> 174d1423011f84d578df4aab0d5178bb3fa823cd
 .env
+skoloapp/.env
