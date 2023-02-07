@@ -146,8 +146,45 @@ def listfaqs(request):
     faq = Faqs.objects.all()
     return render(request, 'dashboard/listfaqs.html', {'faq': faq})
 
+""" def updatefaq(request, faq_id):
+    faq = Faqs.objects.get(pk=faq_id)
+    form = FaqsForm(request.POST or None, instance=faq)
+    if form.is_valid():
+        form.save()
+    return render(request, 'dashboard/updatefaq.html', {'form': form}) """
 
 def deletefaq(request, faq_id):
     faq = Faqs.objects.get(pk=faq_id)
     faq.delete()
     return redirect('addfaq')
+
+
+def addcoverage(request):
+    if request.method == "POST":
+        form = CoverageForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'dashboard/addcoverage.html', {'form': form})
+
+    else:
+        form = CoverageForm()
+    return render(request, 'dashboard/addcoverage.html', {'form': form})
+
+def listcoverage(request):
+    coverage = Coverage.objects.all()
+    context = {
+        'coverage': coverage
+    }
+    return render(request, 'dashboard/listcoverage.html', context)
+
+def updatecoverage(request, coverage_id):
+    coverage = Coverage.objects.get(pk=coverage_id)
+    form = CoverageForm(request.POST or None, instance=coverage)
+    if form.is_valid():
+        form.save()
+    return render(request, 'dashboard/updatecoverage.html', {'coverage': home, 'form': form})
+
+def deletecoverage(request, coverage_id):
+    coverage = Coverage.objects.get(pk=coverage_id)
+    coverage.delete()
+    return redirect('addcoverage')

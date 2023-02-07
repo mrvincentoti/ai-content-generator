@@ -22,8 +22,8 @@ $(window).on("load", function () {
         title = $(this).attr("title");
       navTabs.append(
         '<li class="nav-item"><a class="nav-link" href="#">' +
-          title +
-          "</a></li>"
+        title +
+        "</a></li>"
       );
     });
 

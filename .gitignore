@@ -9,3 +9,4 @@ skoloapp/ftthapp/__pycache__/*
 skoloapp/skoloapp/__pycache__/*
 venv
 .env
+skoloapp/.env
